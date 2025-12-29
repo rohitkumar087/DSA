@@ -5,6 +5,7 @@ import java.util.Stack;
 
 public class NextgreaterElement {
 	public static void main(String[] args) {
+		// Brute Force
 		int[] arr = {1,7,3,2,6,5,4,3,7};
 		int[] newArr = new int[arr.length];
 		
@@ -23,15 +24,17 @@ public class NextgreaterElement {
 //		
 //		System.out.println(Arrays.toString(newArr));
 		
-		// Stack Approach
+		 //Stack Approach
 		Stack<Integer> s = new Stack<>();
 		for(int i=0;i<arr.length;i++) {
 			int val = arr[i];
 			while(!s.isEmpty() && s.peek()<val) {
 				int ele = s.pop();
-				newArr[ele] = val;
+				newArr[ele] = i;
 			}
+			s.push(i);
 		}
 		System.out.println(Arrays.toString(newArr));
+		
 	}
 }
